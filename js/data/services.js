@@ -52,8 +52,8 @@ export const services = [
   },
   {
     icon: 'chain',
-    title: 'Blockchain Analysis',
-    description: 'Blockchain forensics and transaction analysis across multiple chains.'
+    title: 'Network Analysis',
+    description: 'Network forensics, traffic analysis, and blockchain transaction tracing.'
   },
   {
     icon: 'document',

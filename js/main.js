@@ -2,7 +2,6 @@
 import { initLogo } from './modules/logo.js';
 import { initSmoothScroll } from './modules/navigation.js';
 import { initScrollAnimations } from './modules/animations.js';
-import { initContactForm } from './modules/contact.js';
 import { renderServices } from './modules/services.js';
 
 /**
@@ -19,7 +18,6 @@ function init() {
   initLogo();
   initSmoothScroll();
   initScrollAnimations();
-  initContactForm();
 }
 
 // Run initialization when DOM is ready
