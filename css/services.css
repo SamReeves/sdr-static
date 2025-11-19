@@ -1,0 +1,89 @@
+/* Services Section (BEM) */
+.services {
+    background-color: var(--bg-darker);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+}
+
+.services__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+/* Service Card Component (BEM) */
+.service-card {
+    position: relative;
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent-color);
+}
+
+.service-card:hover .service-card__icon {
+    opacity: 0.15;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.service-card__icon {
+    position: absolute;
+    top: 50%;
+    right: -1rem;
+    transform: translateY(-50%);
+    font-size: 8rem;
+    opacity: 0.08;
+    transition: all 0.5s ease;
+    pointer-events: none;
+    z-index: 0;
+    color: var(--text-light);
+    width: 8rem;
+    height: 8rem;
+}
+
+.service-card__icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.service-card__title {
+    position: relative;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+    z-index: 1;
+}
+
+.service-card__description {
+    position: relative;
+    color: var(--text-light);
+    margin-bottom: 0;
+    z-index: 1;
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) {
+    .services {
+        padding: 6rem 2rem;
+    }
+    
+    .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    .services__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

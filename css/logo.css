@@ -1,0 +1,48 @@
+/* Animated Logo Styles (BEM) */
+.logo {
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo:active {
+    transform: scale(0.95);
+}
+
+/* Logo curve path styles */
+.logo__curve {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.85);
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+
+/* Keyframe animation for drawing curves */
+@keyframes drawCurve {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .logo {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .logo {
+        width: 250px;
+        height: 250px;
+    }
+}

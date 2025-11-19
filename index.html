@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure Data Research, LLC">
+    <title>Secure Data Research, LLC</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/logo.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/notifications.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero__content">
+            <div class="hero__header">
+                <div class="hero__logo-container">
+                    <svg id="animatedLogo" class="logo" viewBox="0 0 200 200" role="img" aria-label="Secure Data Research Logo" tabindex="0">
+                        <!-- Paths dynamically injected by JS -->
+                    </svg>
+                </div>
+                <div class="hero__text">
+                    <h1 class="hero__title">Secure Data Research</h1>
+                    <p class="hero__subtitle">Full data life cycle solutions</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero__overlay"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="services__grid">
+            <!-- Service cards dynamically injected by JS -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact__info">
+            <h3>Free Consultation</h3>
+            <div class="contact__item">
+                <span class="contact__icon" aria-hidden="true">📧</span>
+                <span>sam@securedataresearch.net</span>
+            </div>
+            <div class="contact__item">
+                <span class="contact__icon" aria-hidden="true">🌐</span>
+                <span>Remote or on-site</span>
+            </div>
+        </div>
+        <form class="contact__form" id="contactForm">
+            <label for="name" class="sr-only">Name</label>
+            <input type="text" id="name" name="name" placeholder="Name" required>
+            
+            <label for="email" class="sr-only">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            
+            <label for="message" class="sr-only">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
+            
+            <button type="submit" class="btn btn--primary">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Secure Data Research, LLC. All rights reserved.</p>
+    </footer>
+
+    <!-- Main application module -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

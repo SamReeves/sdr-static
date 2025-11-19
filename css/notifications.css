@@ -1,0 +1,130 @@
+/* Toast Notification System */
+.notification {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 280px;
+    max-width: 420px;
+    padding: 1rem 1.25rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-xl);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateX(120%);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+}
+
+.notification--visible {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+}
+
+/* Notification Types */
+.notification--success {
+    border-left: 4px solid #22c55e;
+}
+
+.notification--error {
+    border-left: 4px solid #ef4444;
+}
+
+.notification--warning {
+    border-left: 4px solid #f59e0b;
+}
+
+.notification--info {
+    border-left: 4px solid #3b82f6;
+}
+
+/* Icon Styling */
+.notification__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.notification--success .notification__icon {
+    background-color: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+.notification--error .notification__icon {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+.notification--warning .notification__icon {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+}
+
+.notification--info .notification__icon {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+}
+
+/* Message */
+.notification__message {
+    flex: 1;
+    color: var(--text-dark);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+/* Close Button */
+.notification__close {
+    flex-shrink: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+}
+
+.notification__close:hover {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.notification__close:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+    .notification {
+        top: 1rem;
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+        min-width: 0;
+    }
+}
+
+/* Stack multiple notifications */
+.notification:nth-of-type(n+2) {
+    margin-top: 0.75rem;
+}
+
