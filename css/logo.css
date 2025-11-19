@@ -32,23 +32,14 @@
     }
 }
 
-/* Mobile adjustments - smaller logo */
+/* Mobile adjustments */
 @media (max-width: 768px) {
     .logo {
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
     }
 }
 
-/* Tablet adjustments */
-@media (min-width: 769px) and (max-width: 1023px) {
-    .logo {
-        width: 180px;
-        height: 180px;
-    }
-}
-
-/* Desktop adjustments */
 @media (min-width: 1024px) {
     .logo {
         width: 250px;
