@@ -6,7 +6,8 @@
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 3rem 1rem;
+    padding: clamp(1rem, 2vh, 3rem) 1rem;
+    flex-shrink: 0;
 }
 
 .contact__info {
@@ -75,6 +76,6 @@
 /* Tablet and Desktop Styles */
 @media (min-width: 768px) {
     .contact {
-        padding: 3rem 2rem;
+        padding: clamp(1rem, 2vh, 3rem) 2rem;
     }
 }

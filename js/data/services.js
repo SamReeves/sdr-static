@@ -1,64 +1,65 @@
-// Service cards data
+// Service cards data - grouped structure with expandable sub-services
 export const services = [
   {
-    icon: 'disk',
-    title: 'Data Recovery',
-    description: 'Recover data from damaged, corrupted, or inaccessible storage media.'
-  },
-  {
-    icon: 'search',
-    title: 'Static Analysis',
-    description: 'Code analysis and security auditing to identify vulnerabilities and performance issues.'
-  },
-  {
-    icon: 'ruler',
-    title: 'Numerical Sciences',
-    description: 'Computational mathematics, statistical modeling, and numerical simulations.'
-  },
-  {
-    icon: 'microscope',
-    title: 'Software & Hardware Audits',
-    description: 'Evaluation of software systems and hardware infrastructure for security and performance.'
-  },
-  {
-    icon: 'database',
-    title: 'Database & Network Design',
-    description: 'Custom database and network architecture design.'
-  },
-  {
-    icon: 'zap',
-    title: 'Software Prototyping',
-    description: 'Rapid development of proof-of-concept and prototype applications.'
-  },
-  {
-    icon: 'spider-web',
-    title: 'Web Scraping',
-    description: 'Automated data extraction, web mapping, and large-scale crawling with custom parsers.'
+    icon: 'brain',
+    title: 'AI Model Services',
+    description: 'Custom model training and optimization for your specific use cases.',
+    featured: true,
+    subServices: [
+      { title: 'Full Model Finetuning', description: 'End-to-end training on your data' },
+      { title: 'Low-Rank Adaptation (LoRA)', description: 'Efficient parameter-efficient finetuning' },
+      { title: 'Custom Agents', description: 'Autonomous AI agents tailored to your workflows' }
+    ]
   },
   {
     icon: 'lock',
-    title: 'Encrypted Archiving',
-    description: 'Secure long-term data storage with strong encryption.'
+    title: 'Security & Compliance',
+    description: 'Comprehensive security auditing and hardened infrastructure.',
+    subServices: [
+      { title: 'Static Analysis', description: 'Code analysis and vulnerability scanning' },
+      { title: 'Software & Hardware Audits', description: 'Infrastructure evaluation' },
+      { title: 'Air-Gapped Solutions', description: 'Isolated systems for maximum security' }
+    ]
   },
   {
-    icon: 'trash',
-    title: 'Data Destruction',
-    description: 'Secure data destruction and sanitization using industry best practices.'
-  },
-  {
-    icon: 'plug',
-    title: 'Air-Gapped Solutions',
-    description: 'Work on isolated, air-gapped systems for maximum security.'
+    icon: 'disk',
+    title: 'Data Lifecycle',
+    description: 'Complete data management from recovery to secure destruction.',
+    subServices: [
+      { title: 'Data Recovery', description: 'Recover from damaged or corrupted storage' },
+      { title: 'Encrypted Archiving', description: 'Secure long-term storage with strong encryption' },
+      { title: 'Data Destruction', description: 'Secure sanitization using industry best practices' }
+    ]
   },
   {
     icon: 'chain',
-    title: 'Network Analysis',
-    description: 'Network forensics, traffic analysis, and blockchain transaction tracing.'
+    title: 'Blockchain',
+    description: 'Distributed ledger solutions and transaction analysis.',
+    subServices: [
+      { title: 'Network Analysis', description: 'Forensics, traffic analysis, and transaction tracing' },
+      { title: 'Smart Contract Engineering', description: 'Development and security auditing' }
+    ]
   },
   {
-    icon: 'document',
-    title: 'Smart Contract Engineering',
-    description: 'Design, development, and security auditing of smart contracts.'
+    icon: 'ruler',
+    title: 'Data Science',
+    description: 'End-to-end data science from collection to deployment.',
+    subServices: [
+      { title: 'Data Collection & Cleaning', description: 'ETL pipelines and data quality assurance' },
+      { title: 'Exploratory Analysis', description: 'Statistical analysis and visualization' },
+      { title: 'Feature Engineering', description: 'Transform raw data into model-ready features' },
+      { title: 'Model Development', description: 'Training, validation, and hyperparameter tuning' },
+      { title: 'Deployment & Monitoring', description: 'Production pipelines and performance tracking' }
+    ]
+  },
+  {
+    icon: 'zap',
+    title: 'Rapid Development',
+    description: 'Fast prototyping, infrastructure design, and automated data collection.',
+    subServices: [
+      { title: 'Software Prototyping', description: 'Proof-of-concept and prototype applications' },
+      { title: 'Database & Network Design', description: 'Custom architecture design' },
+      { title: 'Web Scraping', description: 'Automated extraction and large-scale crawling' }
+    ]
   }
 ];
-

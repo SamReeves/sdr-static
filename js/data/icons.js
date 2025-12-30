@@ -1,5 +1,6 @@
 // Emoji icons for services (from system fonts)
 export const icons = {
+  brain: '🧠',
   disk: '💾',
   search: '🔍',
   ruler: '📐',

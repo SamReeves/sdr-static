@@ -33,6 +33,9 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--bg-darker);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Mobile-first Typography */
