@@ -3,7 +3,7 @@ export const services = [
   {
     icon: 'brain',
     title: 'AI Model Services',
-    description: 'Custom model training and optimization for your specific use cases.',
+    description: 'Specialized LLM training and autonomous AI agents for your workflows.',
     featured: true,
     subServices: [
       { title: 'Full Model Finetuning', description: 'End-to-end training on your data' },
@@ -42,8 +42,8 @@ export const services = [
   },
   {
     icon: 'ruler',
-    title: 'Data Science',
-    description: 'End-to-end data science from collection to deployment.',
+    title: 'Analytics & ML Engineering',
+    description: 'End-to-end data pipelines from collection to production deployment.',
     subServices: [
       { title: 'Data Collection & Cleaning', description: 'ETL pipelines and data quality assurance' },
       { title: 'Exploratory Analysis', description: 'Statistical analysis and visualization' },

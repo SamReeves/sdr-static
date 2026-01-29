@@ -1,19 +1,43 @@
 /* Services Section (BEM) */
 .services {
     background-color: var(--bg-darker);
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: clamp(1rem, 2vh, 2rem) clamp(1rem, 2vw, 2rem);
+    width: 100%;
+    margin: 0;
+    padding: 0;
     flex: 1;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    height: 0;
+}
+
+/* Visibility toggles for graph/grid */
+.services__grid--hidden {
+    display: none;
+}
+
+.services__graph--hidden {
+    display: none;
+}
+
+.services__graph {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    padding: 1rem;
+    overflow: hidden;
 }
 
 .services__grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: clamp(0.75rem, 1.5vh, 1.25rem);
+    max-width: 1200px;
+    width: 100%;
+    padding: clamp(1rem, 2vh, 2rem) clamp(1rem, 2vw, 2rem);
 }
 
 /* Service Card Component (BEM) */
@@ -184,5 +208,16 @@
 @media (min-width: 1024px) {
     .services__grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Force card grid on mobile/tablet, hide graph */
+@media (max-width: 1024px) {
+    .services__graph {
+        display: none !important;
+    }
+    
+    .services__grid {
+        display: grid !important;
     }
 }
