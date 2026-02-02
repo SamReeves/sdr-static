@@ -64,7 +64,7 @@ export const services = [
   },
   {
     icon: 'wrench',
-    title: 'Code Plumber Duties',
+    title: 'Code Plumbing',
     description: 'Maintenance, debugging, and technical debt management for existing codebases.',
     subServices: [
       { title: 'Debugging & Troubleshooting', description: 'Root cause analysis and bug fixes' },

@@ -10,11 +10,11 @@ import { icons } from '../data/icons.js';
 const CONFIG = {
   width: 1000,
   height: 700,
-  centerForce: 0.3,
-  chargeStrength: -1000,
-  linkDistance: 180,
+  centerForce: 0.4,
+  chargeStrength: -800,
+  linkDistance: 140,
   transitionDuration: 300,
-  radiusMultiplier: 2.5,
+  radiusMultiplier: 2.2,
   padding: 50
 };
 

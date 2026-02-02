@@ -119,6 +119,18 @@ function getCategoryRelationships() {
       source: 'rapid-development',
       target: 'ai-model-services',
       theme: 'Rapid Prototyping'
+    },
+    // Code Plumbing and Rapid Development (maintenance after development)
+    {
+      source: 'code-plumbing',
+      target: 'rapid-development',
+      theme: 'Development Lifecycle'
+    },
+    // Code Plumbing and Data Lifecycle (maintaining data pipelines)
+    {
+      source: 'code-plumbing',
+      target: 'data-lifecycle',
+      theme: 'Pipeline Maintenance'
     }
   ];
 }
