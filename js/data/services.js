@@ -61,5 +61,18 @@ export const services = [
       { title: 'Database & Network Design', description: 'Custom architecture design' },
       { title: 'Web Scraping', description: 'Automated extraction and large-scale crawling' }
     ]
+  },
+  {
+    icon: 'wrench',
+    title: 'Code Plumber Duties',
+    description: 'Maintenance, debugging, and technical debt management for existing codebases.',
+    subServices: [
+      { title: 'Debugging & Troubleshooting', description: 'Root cause analysis and bug fixes' },
+      { title: 'Code Refactoring', description: 'Improve code quality and maintainability' },
+      { title: 'Tech Debt Management', description: 'Systematic reduction of technical debt' },
+      { title: 'Performance Optimization', description: 'Profiling and optimization of bottlenecks' },
+      { title: 'Dependency Updates', description: 'Security patches and version upgrades' },
+      { title: 'Build Pipeline Maintenance', description: 'CI/CD optimization and troubleshooting' }
+    ]
   }
 ];

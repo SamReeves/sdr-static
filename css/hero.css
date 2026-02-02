@@ -5,12 +5,9 @@
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
-    padding: 1rem;
+    padding: clamp(0.5rem, 1vh, 1rem) 1rem;
     margin-top: 0;
     flex-shrink: 0;
-    height: auto;
-    min-height: 80px;
-    max-height: 15vh;
 }
 
 .hero__overlay {

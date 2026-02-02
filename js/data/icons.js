@@ -12,6 +12,7 @@ export const icons = {
   trash: '🗑️',
   plug: '🔌',
   chain: '⛓️',
-  document: '📄'
+  document: '📄',
+  wrench: '🔧'
 };
 

@@ -22,7 +22,6 @@ const CONFIG = {
 let svg, simulation, nodeElements, edgeElements, labelElements, tooltip, detailPanel;
 let graphData = { nodes: [], edges: [] };
 let currentSelectedNode = null;
-let resizeObserver = null;
 
 /**
  * Initialize the service graph visualization
@@ -32,15 +31,6 @@ export function initServiceGraph(container) {
     console.error('Service graph container not found');
     return;
   }
-  
-  // Get actual container dimensions
-  const rect = container.getBoundingClientRect();
-  const containerWidth = rect.width - 40; // Account for padding
-  const containerHeight = rect.height - 40;
-  
-  // Update CONFIG with dynamic dimensions
-  CONFIG.width = Math.max(600, Math.min(1200, containerWidth));
-  CONFIG.height = Math.max(400, Math.min(800, containerHeight));
   
   // Get graph data
   graphData = getGraphData();
@@ -73,31 +63,6 @@ export function initServiceGraph(container) {
   
   // Start simulation
   simulation.on('tick', onTick);
-  
-  // Watch for container size changes
-  if (typeof ResizeObserver !== 'undefined') {
-    resizeObserver = new ResizeObserver(() => {
-      const rect = container.getBoundingClientRect();
-      const newWidth = Math.max(600, Math.min(1200, rect.width - 40));
-      const newHeight = Math.max(400, Math.min(800, rect.height - 40));
-      
-      if (Math.abs(newWidth - CONFIG.width) > 50 || Math.abs(newHeight - CONFIG.height) > 50) {
-        // Significant size change, update dimensions
-        CONFIG.width = newWidth;
-        CONFIG.height = newHeight;
-        
-        // Update SVG viewBox
-        svg.attr('viewBox', `0 0 ${newWidth} ${newHeight}`);
-        
-        // Update simulation center force
-        simulation.force('center', d3.forceCenter(newWidth / 2, newHeight / 2).strength(CONFIG.centerForce));
-        
-        // Restart simulation with low alpha to smoothly reposition
-        simulation.alpha(0.3).restart();
-      }
-    });
-    resizeObserver.observe(container);
-  }
 }
 
 /**
