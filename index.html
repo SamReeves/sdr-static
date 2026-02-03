@@ -21,6 +21,7 @@
                 <div class="hero__text">
                     <h3 class="hero__title">Secure Data Research</h3>
                     <p class="hero__subtitle">Test and transform</p>
+                    <a href="contact.html" class="hero__contact-btn">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -30,17 +31,110 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="services__graph">
-            <!-- D3 graph rendered here (desktop) -->
+            <!-- Static SVG graph (desktop) -->
+            <svg class="service-graph" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet">
+                <!-- Relationship edges (subtle dotted lines) -->
+                <g class="service-graph__edges">
+                    <!-- AI to Analytics -->
+                    <line x1="500" y1="120" x2="720" y2="200" class="service-graph__edge service-graph__edge--relationship" />
+                    <!-- Security to Blockchain -->
+                    <line x1="280" y1="200" x2="250" y2="400" class="service-graph__edge service-graph__edge--relationship" />
+                    <!-- Security to Data Lifecycle -->
+                    <line x1="280" y1="200" x2="420" y2="520" class="service-graph__edge service-graph__edge--relationship" />
+                    <!-- Data Lifecycle to Analytics -->
+                    <line x1="420" y1="520" x2="720" y2="200" class="service-graph__edge service-graph__edge--relationship" />
+                    <!-- Blockchain to Analytics -->
+                    <line x1="250" y1="400" x2="720" y2="200" class="service-graph__edge service-graph__edge--relationship" />
+                    <!-- Rapid Development to AI -->
+                    <line x1="750" y1="400" x2="500" y2="120" class="service-graph__edge service-graph__edge--relationship" />
+                    <!-- Code Plumbing to Rapid Development -->
+                    <line x1="640" y1="530" x2="750" y2="400" class="service-graph__edge service-graph__edge--relationship" />
+                    <!-- Code Plumbing to Data Lifecycle -->
+                    <line x1="640" y1="530" x2="420" y2="520" class="service-graph__edge service-graph__edge--relationship" />
+                </g>
+                
+                <!-- Primary edges (center to categories) -->
+                <g class="service-graph__primary-edges">
+                    <line x1="500" y1="350" x2="500" y2="120" class="service-graph__edge service-graph__edge--primary" />
+                    <line x1="500" y1="350" x2="280" y2="200" class="service-graph__edge service-graph__edge--primary" />
+                    <line x1="500" y1="350" x2="420" y2="520" class="service-graph__edge service-graph__edge--primary" />
+                    <line x1="500" y1="350" x2="250" y2="400" class="service-graph__edge service-graph__edge--primary" />
+                    <line x1="500" y1="350" x2="720" y2="200" class="service-graph__edge service-graph__edge--primary" />
+                    <line x1="500" y1="350" x2="750" y2="400" class="service-graph__edge service-graph__edge--primary" />
+                    <line x1="500" y1="350" x2="640" y2="530" class="service-graph__edge service-graph__edge--primary" />
+                </g>
+                
+                <!-- Category nodes -->
+                <g class="service-graph__nodes">
+                    <!-- AI Model Services (top) -->
+                    <g class="service-graph__node service-graph__node--category" data-service="0" transform="translate(500, 120)">
+                        <circle class="service-graph__node-hitarea" r="40" />
+                        <text class="service-graph__node-icon" text-anchor="middle" dominant-baseline="central" font-size="2.5rem">🧠</text>
+                        <circle class="service-graph__node-badge" r="8" cx="25" cy="-25" />
+                    </g>
+                    
+                    <!-- Security & Compliance (top-left) -->
+                    <g class="service-graph__node service-graph__node--category" data-service="1" transform="translate(280, 200)">
+                        <circle class="service-graph__node-hitarea" r="40" />
+                        <text class="service-graph__node-icon" text-anchor="middle" dominant-baseline="central" font-size="2.5rem">🔒</text>
+                    </g>
+                    
+                    <!-- Data Lifecycle (bottom-left) -->
+                    <g class="service-graph__node service-graph__node--category" data-service="2" transform="translate(420, 520)">
+                        <circle class="service-graph__node-hitarea" r="40" />
+                        <text class="service-graph__node-icon" text-anchor="middle" dominant-baseline="central" font-size="2.5rem">💾</text>
+                    </g>
+                    
+                    <!-- Blockchain (left) -->
+                    <g class="service-graph__node service-graph__node--category" data-service="3" transform="translate(250, 400)">
+                        <circle class="service-graph__node-hitarea" r="40" />
+                        <text class="service-graph__node-icon" text-anchor="middle" dominant-baseline="central" font-size="2.5rem">⛓️</text>
+                    </g>
+                    
+                    <!-- Analytics & ML Engineering (top-right) -->
+                    <g class="service-graph__node service-graph__node--category" data-service="4" transform="translate(720, 200)">
+                        <circle class="service-graph__node-hitarea" r="40" />
+                        <text class="service-graph__node-icon" text-anchor="middle" dominant-baseline="central" font-size="2.5rem">📐</text>
+                    </g>
+                    
+                    <!-- Rapid Development (right) -->
+                    <g class="service-graph__node service-graph__node--category" data-service="5" transform="translate(750, 400)">
+                        <circle class="service-graph__node-hitarea" r="40" />
+                        <text class="service-graph__node-icon" text-anchor="middle" dominant-baseline="central" font-size="2.5rem">⚡</text>
+                    </g>
+                    
+                    <!-- Code Plumbing (bottom-right) -->
+                    <g class="service-graph__node service-graph__node--category" data-service="6" transform="translate(640, 530)">
+                        <circle class="service-graph__node-hitarea" r="40" />
+                        <text class="service-graph__node-icon" text-anchor="middle" dominant-baseline="central" font-size="2.5rem">🔧</text>
+                    </g>
+                    
+                    <!-- Center logo -->
+                    <g class="service-graph__node service-graph__node--center" transform="translate(500, 350)">
+                        <image href="logo-image.JPG" width="80" height="80" x="-40" y="-40" class="service-graph__node-logo" />
+                    </g>
+                </g>
+                
+                <!-- Labels -->
+                <g class="service-graph__labels">
+                    <text class="service-graph__label service-graph__label--category" x="500" y="168" text-anchor="middle">AI Model Services</text>
+                    <text class="service-graph__label service-graph__label--category" x="280" y="248" text-anchor="middle">Security &amp; Compliance</text>
+                    <text class="service-graph__label service-graph__label--category" x="420" y="568" text-anchor="middle">Data Lifecycle</text>
+                    <text class="service-graph__label service-graph__label--category" x="250" y="448" text-anchor="middle">Blockchain</text>
+                    <text class="service-graph__label service-graph__label--category" x="720" y="248" text-anchor="middle">Analytics &amp; ML Engineering</text>
+                    <text class="service-graph__label service-graph__label--category" x="750" y="448" text-anchor="middle">Rapid Development</text>
+                    <text class="service-graph__label service-graph__label--category" x="640" y="578" text-anchor="middle">Code Plumbing</text>
+                    <text class="service-graph__label service-graph__label--center" x="500" y="418" text-anchor="middle">SDR</text>
+                </g>
+            </svg>
+            
+            <!-- Detail panel will be injected here by JS -->
         </div>
         <div class="services__grid">
             <!-- Service cards dynamically injected by JS (mobile) -->
         </div>
     </section>
 
-
-    <!-- D3.js library -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    
     <!-- Main application module -->
     <script type="module" src="js/main.js"></script>
 </body>

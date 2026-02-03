@@ -10,7 +10,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
 }
 
 /* Visibility toggles for graph/grid */
@@ -215,5 +214,9 @@
     
     .services__grid {
         display: grid !important;
+    }
+    
+    .services {
+        min-height: 100vh;
     }
 }

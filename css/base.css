@@ -17,6 +17,8 @@
     --bg-light: #171717;
     --bg-card: #171717;
     --border-color: #262626;
+    --link-color: #60a5fa;
+    --link-visited: #c084fc;
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7);
@@ -38,6 +40,13 @@ body {
     flex-direction: column;
 }
 
+@media (min-width: 1025px) {
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
+}
+
 /* Mobile-first Typography */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
@@ -53,6 +62,20 @@ h4 { font-size: 1.25rem; }
 p {
     margin-bottom: 1rem;
     color: var(--text-light);
+}
+
+/* Link Styles */
+a {
+    color: var(--link-color);
+    transition: color 0.3s ease;
+}
+
+a:visited {
+    color: var(--link-visited);
+}
+
+a:hover {
+    color: var(--text-white);
 }
 
 /* Buttons (BEM) */
