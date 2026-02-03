@@ -1,56 +1,54 @@
-// Main application entry point
-import { initScrollAnimations } from './modules/animations.js';
-import { renderServices } from './modules/services.js';
+/**
+ * ============================================================================
+ * MAIN APPLICATION
+ * ============================================================================
+ * 
+ * Entry point for the Secure Data Research website
+ * Initializes the 3D sphere graph and click-to-view detail panel
+ */
+
+import { initSphereGraph } from './modules/sphere-graph.js';
 import { services } from './data/services.js';
 import { icons } from './data/icons.js';
 
-let detailPanel = null;
+// ============================================================================
+// STATE
+// ============================================================================
+
+let detailPanel = null;  // Reference to the detail panel DOM element
+
+// ============================================================================
+// INITIALIZATION
+// ============================================================================
 
 /**
  * Initialize the application
+ * 
+ * Sets up:
+ * 1. Detail panel for showing service information
+ * 2. Click handlers on service nodes
+ * 3. 3D sphere graph animation
  */
 function init() {
-  // Render services based on viewport
-  initServices();
-  
-  // Initialize interactive features
-  initScrollAnimations();
-}
-
-/**
- * Initialize services section (static SVG graph for desktop, cards for mobile)
- */
-function initServices() {
   const graphContainer = document.querySelector('.services__graph');
-  const gridContainer = document.querySelector('.services__grid');
-  
-  if (window.innerWidth > 1024 && graphContainer) {
-    // Desktop: setup static SVG click handlers
-    initStaticGraph(graphContainer);
-    if (gridContainer) {
-      gridContainer.classList.add('services__grid--hidden');
-    }
-  } else if (gridContainer) {
-    // Mobile/fallback: render card grid
-    renderServices(gridContainer);
-    if (graphContainer) {
-      graphContainer.classList.add('services__graph--hidden');
-    }
-  }
+  if (!graphContainer) return;
+
+  createDetailPanel(graphContainer);
+  attachNodeClickHandlers(graphContainer);
+  initSphereGraph(graphContainer);
 }
 
 /**
- * Initialize static SVG graph interactions
+ * Attach click event handlers to all service nodes
+ * 
+ * @param {HTMLElement} container - Graph container element
  */
-function initStaticGraph(container) {
-  // Create detail panel element
-  createDetailPanel(container);
-  
-  // Add click handlers to category nodes
+function attachNodeClickHandlers(container) {
   const categoryNodes = container.querySelectorAll('.service-graph__node--category');
+  
   categoryNodes.forEach(node => {
     node.style.cursor = 'pointer';
-    node.addEventListener('click', (e) => {
+    node.addEventListener('click', () => {
       const serviceIndex = parseInt(node.getAttribute('data-service'));
       const service = services[serviceIndex];
       showDetailPanel(service);
@@ -58,8 +56,16 @@ function initStaticGraph(container) {
   });
 }
 
+// ============================================================================
+// DETAIL PANEL
+// ============================================================================
+
 /**
- * Create detail panel element
+ * Create the detail panel element
+ * 
+ * Panel is initially hidden and will be shown when user clicks a node
+ * 
+ * @param {HTMLElement} container - Container to append panel to
  */
 function createDetailPanel(container) {
   detailPanel = document.createElement('div');
@@ -71,6 +77,10 @@ function createDetailPanel(container) {
 
 /**
  * Show detail panel with service information
+ * 
+ * Builds HTML content from service data and displays it with fade-in animation
+ * 
+ * @param {object} service - Service data object from services.js
  */
 function showDetailPanel(service) {
   if (!service || !service.subServices || service.subServices.length === 0) return;
@@ -109,7 +119,7 @@ function showDetailPanel(service) {
 }
 
 /**
- * Hide detail panel
+ * Hide detail panel with fade-out animation
  */
 function hideDetailPanel() {
   detailPanel.style.opacity = '0';
@@ -118,31 +128,9 @@ function hideDetailPanel() {
   }, 300);
 }
 
-/**
- * Handle window resize to switch between layouts
- */
-function handleResize() {
-  const currentWidth = window.innerWidth;
-  const graphContainer = document.querySelector('.services__graph');
-  const gridContainer = document.querySelector('.services__grid');
-  
-  // Only reinitialize if crossing the 1024px threshold
-  if (currentWidth > 1024 && gridContainer?.classList.contains('services__grid--hidden') === false) {
-    // Switch to graph view
-    location.reload();
-  } else if (currentWidth <= 1024 && graphContainer?.classList.contains('services__graph--hidden') === false) {
-    // Switch to card view
-    location.reload();
-  }
-}
-
-// Debounce resize handler
-let resizeTimeout;
-window.addEventListener('resize', () => {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(handleResize, 250);
-});
-
+// ============================================================================
+// STARTUP
+// ============================================================================
 // Run initialization when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);

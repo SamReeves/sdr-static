@@ -68,6 +68,35 @@
     font-size: 1rem;
 }
 
+.contact-page__email {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.contact-page__email-link {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--link-color);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border: 2px solid var(--link-color);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.contact-page__email-link:visited {
+    color: var(--link-visited);
+    border-color: var(--link-visited);
+}
+
+.contact-page__email-link:hover {
+    color: var(--text-white);
+    border-color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
 .contact-page__footer {
     padding: 1rem 2rem;
     text-align: center;

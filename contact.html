@@ -20,179 +20,20 @@
             <a href="index.html" class="contact-page__back">← Back to Home</a>
         </header>
 
-        <!-- Form Container -->
+        <!-- Contact Info -->
         <main class="contact-page__main">
             <div class="contact-page__container">
                 <p class="contact-page__intro">
-                    Interested in our services? Fill out the form below and we'll get back to you shortly.
+                    Interested in our services? Send us an email to discuss your project.
                 </p>
 
-                <form id="contactForm" class="contact__form">
-                    <!-- Name -->
-                    <div class="contact__form-group">
-                        <label for="name" class="contact__form-label">Name *</label>
-                        <input 
-                            type="text" 
-                            id="name" 
-                            name="name" 
-                            class="contact__form-input" 
-                            required
-                            placeholder="Your name"
-                        >
-                    </div>
-
-                    <!-- Email -->
-                    <div class="contact__form-group">
-                        <label for="email" class="contact__form-label">Email *</label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            class="contact__form-input" 
-                            required
-                            placeholder="your.email@example.com"
-                        >
-                    </div>
-
-                    <!-- Company -->
-                    <div class="contact__form-group">
-                        <label for="company" class="contact__form-label">Company/Organization</label>
-                        <input 
-                            type="text" 
-                            id="company" 
-                            name="company" 
-                            class="contact__form-input" 
-                            placeholder="Optional"
-                        >
-                    </div>
-
-                    <!-- Service Interest -->
-                    <div class="contact__form-group">
-                        <label for="service" class="contact__form-label">Service of Interest</label>
-                        <select id="service" name="service" class="contact__form-select">
-                            <option value="">Select a service (optional)</option>
-                            <option value="AI Model Services">AI Model Services</option>
-                            <option value="Security & Compliance">Security & Compliance</option>
-                            <option value="Data Lifecycle">Data Lifecycle</option>
-                            <option value="Blockchain">Blockchain</option>
-                            <option value="Analytics & ML Engineering">Analytics & ML Engineering</option>
-                            <option value="Rapid Development">Rapid Development</option>
-                            <option value="Code Plumbing">Code Plumbing</option>
-                            <option value="General Inquiry">General Inquiry</option>
-                        </select>
-                    </div>
-
-                    <!-- Message -->
-                    <div class="contact__form-group">
-                        <label for="message" class="contact__form-label">Message *</label>
-                        <textarea 
-                            id="message" 
-                            name="message" 
-                            class="contact__form-textarea" 
-                            required
-                            rows="6"
-                            placeholder="Tell us about your project or inquiry..."
-                        ></textarea>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="contact__form-submit" id="submitBtn">
-                        <span class="contact__form-submit-text">Send Message</span>
-                        <span class="contact__form-submit-loading" style="display: none;">Sending...</span>
-                    </button>
-
-                    <!-- Status Messages -->
-                    <div id="formStatus" class="contact__form-status" style="display: none;"></div>
-                </form>
+                <div class="contact-page__email">
+                    <a href="mailto:sam@securedataresearch.net" class="contact-page__email-link">
+                        sam@securedataresearch.net
+                    </a>
+                </div>
             </div>
         </main>
-
-        <!-- Footer Note -->
-        <footer class="contact-page__footer">
-            <p>* Required fields</p>
-        </footer>
     </div>
-
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    
-    <!-- Form Handler Script -->
-    <script>
-        // Initialize EmailJS
-        // Replace these with your actual EmailJS credentials
-        const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY_HERE';
-        const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID_HERE';
-        const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID_HERE';
-
-        // Initialize EmailJS when the page loads
-        (function() {
-            emailjs.init(EMAILJS_PUBLIC_KEY);
-        })();
-
-        // Form submission handler
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const form = event.target;
-            const submitBtn = document.getElementById('submitBtn');
-            const submitText = submitBtn.querySelector('.contact__form-submit-text');
-            const submitLoading = submitBtn.querySelector('.contact__form-submit-loading');
-            const statusDiv = document.getElementById('formStatus');
-
-            // Disable submit button
-            submitBtn.disabled = true;
-            submitText.style.display = 'none';
-            submitLoading.style.display = 'inline';
-
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                company: document.getElementById('company').value || 'Not provided',
-                service: document.getElementById('service').value || 'Not specified',
-                message: document.getElementById('message').value
-            };
-
-            // Send email via EmailJS
-            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData)
-                .then(function(response) {
-                    // Success
-                    statusDiv.className = 'contact__form-status contact__form-status--success';
-                    statusDiv.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
-                    statusDiv.style.display = 'block';
-                    
-                    // Reset form
-                    form.reset();
-                    
-                    // Re-enable button
-                    submitBtn.disabled = false;
-                    submitText.style.display = 'inline';
-                    submitLoading.style.display = 'none';
-                }, function(error) {
-                    // Error
-                    statusDiv.className = 'contact__form-status contact__form-status--error';
-                    statusDiv.textContent = 'Oops! Something went wrong. Please try again or email us directly.';
-                    statusDiv.style.display = 'block';
-                    
-                    // Re-enable button
-                    submitBtn.disabled = false;
-                    submitText.style.display = 'inline';
-                    submitLoading.style.display = 'none';
-                    
-                    console.error('EmailJS Error:', error);
-                });
-        });
-
-        // Basic form validation styling
-        const inputs = document.querySelectorAll('.contact__form-input, .contact__form-textarea');
-        inputs.forEach(input => {
-            input.addEventListener('invalid', function() {
-                this.classList.add('contact__form-field--error');
-            });
-            input.addEventListener('input', function() {
-                this.classList.remove('contact__form-field--error');
-            });
-        });
-    </script>
 </body>
 </html>

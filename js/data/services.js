@@ -1,16 +1,33 @@
-// Service cards data - grouped structure with expandable sub-services
+/**
+ * ============================================================================
+ * SERVICE DATA
+ * ============================================================================
+ * 
+ * Defines all service offerings displayed in the 3D sphere graph.
+ * 
+ * Each service has:
+ * - icon: Key referencing an emoji from icons.js
+ * - title: Main service category name
+ * - description: Brief overview
+ * - subServices: Array of specific offerings under this category
+ * 
+ * Array index corresponds to data-service attribute in HTML (0-6)
+ */
+
 export const services = [
+  // Index 0
   {
     icon: 'brain',
     title: 'AI Model Services',
     description: 'Specialized LLM training and autonomous AI agents for your workflows.',
-    featured: true,
     subServices: [
       { title: 'Full Model Finetuning', description: 'End-to-end training on your data' },
       { title: 'Low-Rank Adaptation (LoRA)', description: 'Efficient parameter-efficient finetuning' },
       { title: 'Custom Agents', description: 'Autonomous AI agents tailored to your workflows' }
     ]
   },
+  
+  // Index 1
   {
     icon: 'lock',
     title: 'Security & Compliance',
@@ -21,6 +38,8 @@ export const services = [
       { title: 'Air-Gapped Solutions', description: 'Isolated systems for maximum security' }
     ]
   },
+  
+  // Index 2
   {
     icon: 'disk',
     title: 'Data Lifecycle',
@@ -31,6 +50,8 @@ export const services = [
       { title: 'Data Destruction', description: 'Secure sanitization using industry best practices' }
     ]
   },
+  
+  // Index 3
   {
     icon: 'chain',
     title: 'Blockchain',
@@ -40,6 +61,8 @@ export const services = [
       { title: 'Smart Contract Engineering', description: 'Development and security auditing' }
     ]
   },
+  
+  // Index 4
   {
     icon: 'ruler',
     title: 'Analytics & ML Engineering',
@@ -52,6 +75,8 @@ export const services = [
       { title: 'Deployment & Monitoring', description: 'Production pipelines and performance tracking' }
     ]
   },
+  
+  // Index 5
   {
     icon: 'zap',
     title: 'Rapid Development',
@@ -62,6 +87,8 @@ export const services = [
       { title: 'Web Scraping', description: 'Automated extraction and large-scale crawling' }
     ]
   },
+  
+  // Index 6
   {
     icon: 'wrench',
     title: 'Code Plumbing',
