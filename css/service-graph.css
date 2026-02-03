@@ -219,18 +219,40 @@
   }
 }
 
-/* Mobile: Panel moves below graph */
+/* Mobile: Full viewport graph, panel moves below */
 @media (max-width: 768px) {
-  .services__graph {
-    min-height: 500px;
+  /* Remove body overflow constraint on mobile */
+  body {
+    height: auto;
+    overflow: visible;
   }
   
+  /* Make services section flexible height */
+  .services {
+    min-height: auto;
+  }
+  
+  /* Graph fills viewport */
+  .services__graph {
+    min-height: 100vh;
+    height: 100vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Panel appears below graph in document flow */
   .service-graph__panel {
-    position: static;
+    position: relative;
     transform: none;
     width: 100%;
-    max-width: 600px;
-    margin: 1rem auto;
+    max-width: 100%;
+    margin: 0;
     max-height: none;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    top: auto;
+    right: auto;
   }
 }

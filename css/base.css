@@ -40,7 +40,8 @@ body {
     flex-direction: column;
 }
 
-@media (min-width: 1025px) {
+/* Desktop only: Lock viewport height */
+@media (min-width: 769px) {
     body {
         height: 100vh;
         overflow: hidden;
