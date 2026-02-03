@@ -16,15 +16,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 1rem;
+  overflow: visible;
 }
 
 .service-graph {
   width: 100%;
   height: 100%;
-  max-width: 1000px;
-  max-height: 700px;
+  max-width: 100%;
+  max-height: 100%;
   display: block;
+  overflow: visible;
 }
 
 /* ============================================================================
@@ -38,7 +40,7 @@
 }
 
 .service-graph__edge--relationship {
-  stroke: var(--text-light);
+  stroke: #ffffff;
   stroke-width: 1px;
   stroke-dasharray: 4, 4;
   stroke-opacity: 0.15;
@@ -98,19 +100,12 @@
    ============================================================================ */
 
 .service-graph__panel {
-  position: fixed;
-  top: 50%;
-  right: 2rem;
-  transform: translateY(-50%);
-  width: 320px;
-  max-height: 80vh;
-  overflow-y: auto;
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 0.75rem;
   box-shadow: var(--shadow-xl);
-  z-index: 1001;
   transition: opacity 0.3s ease;
+  overflow-y: auto;
 }
 
 .service-graph__panel-header {
@@ -207,52 +202,92 @@
    RESPONSIVE DESIGN
    ============================================================================ */
 
-/* Tablet: Smaller panel */
-@media (max-width: 1200px) {
+/* Desktop: Height-bounded square */
+@media (min-width: 769px) {
+  .services {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
   .services__graph {
-    min-height: 600px;
+    height: calc(100vh - 100px); /* Account for hero */
+    width: auto;
+    aspect-ratio: 1;
+    max-width: calc(100vw - 400px); /* Leave room for panel */
+    margin: 0 auto;
   }
   
   .service-graph__panel {
+    position: fixed;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    width: 320px;
+    max-height: 80vh;
+    z-index: 1001;
+  }
+}
+
+/* Tablet: Slightly smaller panel */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .services__graph {
+    max-width: calc(100vw - 320px);
+  }
+  
+  .service-graph__panel {
+    position: fixed;
     width: 280px;
     right: 1rem;
   }
 }
 
-/* Mobile: Full viewport graph, panel moves below */
+/* Mobile: Width-bounded square, panel below */
 @media (max-width: 768px) {
-  /* Remove body overflow constraint on mobile */
-  body {
-    height: auto;
-    overflow: visible;
-  }
-  
-  /* Make services section flexible height */
+  /* Allow vertical scrolling */
   .services {
+    display: block;
+    width: 100%;
     min-height: auto;
   }
   
-  /* Graph fills viewport */
+  /* Stack graph and panel vertically */
   .services__graph {
-    min-height: 100vh;
-    height: 100vh;
-    padding: 1rem;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    padding: 0 1rem;
+    margin: 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
+  }
+  
+  /* SVG maintains square aspect, doesn't shrink */
+  .service-graph {
+    width: calc(100vw - 2rem);
+    height: calc(100vw - 2rem);
+    flex-shrink: 0;
   }
   
   /* Panel appears below graph in document flow */
   .service-graph__panel {
-    position: relative;
-    transform: none;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    max-height: none;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
-    top: auto;
-    right: auto;
+    position: static !important;
+    transform: none !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 -1rem !important;
+    padding: 1.5rem 1rem !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: 1px solid var(--border-color) !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    bottom: auto !important;
+    z-index: auto !important;
   }
 }

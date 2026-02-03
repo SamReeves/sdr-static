@@ -16,9 +16,9 @@
 // CONFIGURATION
 // ============================================================================
 
-const SPHERE_RADIUS = 200;        // Radius of the sphere in SVG units
+const SPHERE_RADIUS = 220;        // Radius of the sphere in SVG units
 const CAMERA_DISTANCE = 600;      // Distance of virtual camera from origin
-const CENTER_X = 500;             // SVG viewport center X
+const CENTER_X = 350;             // SVG viewport center X
 const CENTER_Y = 350;             // SVG viewport center Y
 const ANIMATION_PERIOD = 30000;   // Full rotation time in milliseconds
 
@@ -168,8 +168,8 @@ function updateNodePositions(timestamp) {
   // Spin: full 360° rotation around Y-axis
   const spinAngle = t * 2 * Math.PI;
   
-  // Tilt: smooth oscillation (0° → 45° → 0°) around X-axis
-  const tiltAngle = Math.sin(t * Math.PI) * (Math.PI / 4);
+  // Tilt: smooth oscillation (0° → 180° → 0°) around X-axis
+  const tiltAngle = Math.sin(t * Math.PI) * Math.PI;
 
   // Project all nodes
   const projectedNodes = SPHERE_NODES.map((node) => {
